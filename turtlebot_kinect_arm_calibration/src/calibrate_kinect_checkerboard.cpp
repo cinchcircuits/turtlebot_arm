@@ -189,7 +189,9 @@ public:
   void pointcloudCallback(const pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr& msg)
   {
     sensor_msgs::ImagePtr image_msg(new sensor_msgs::Image);
-    pcl::toROSMsg (*msg, *image_msg);
+    sensor_msgs::PointCloud2 cloud;
+    pcl::toROSMsg(*msg, cloud);
+    pcl::toROSMsg (cloud, *image_msg);
   
     imageCallback(image_msg);
   }
