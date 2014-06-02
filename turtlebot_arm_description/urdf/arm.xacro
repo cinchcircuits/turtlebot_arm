@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
-<robot>
-  <include filename="$(find turtlebot_arm_description)/urdf/arm_hardware.xacro" />
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find turtlebot_arm_description)/urdf/arm_hardware.xacro"/>
 
   <material name="white">
     <color rgba="0.87 0.90 0.87 1.0"/>
@@ -13,7 +13,7 @@
     <color rgba="0.22 0.32 0.14 1.0"/>
   </material>
 
-  <macro name="turtlebot_arm" params="parent color gripper_color *origin"> 
+  <xacro:macro name="turtlebot_arm" params="parent color gripper_color *origin"> 
     <link name="arm_base_link" />     
     <joint name="arm_base_joint" type="fixed">
       <insert_block name="origin" />
@@ -139,6 +139,6 @@
       <origin xyz="0 0 0" rpy="0 0 ${M_PI}" />
     </finger_fixed>
 
-  </macro>
+  </xacro:macro>
 
 </robot>
