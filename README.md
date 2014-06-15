@@ -6,10 +6,10 @@ This is the catkin-ized and moveit-ed version of turtlebot arm. It's currently n
 ## Attaching the Arm to a Robot
 Open your xacro-macro-magic URDF, and add something like:
 
-       <include filename="$(find turtlebot_arm_description)/urdf/arm.xacro" />
-       <turtlebot_arm parent="base_link" color="white" gripper_color="green">
-          <origin xyz="0 0 1"/>
-        </turtlebot_arm>
+   <xacro:include filename="$(find turtlebot_arm_description)/urdf/arm.xacro" />
+   <turtlebot_arm parent="base_link" color="black" gripper_color="green" joints_vlimit="1.571" pan_llimit="-2.617" pan_ulimit="2.617">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </turtlebot_arm>
 
 This will attach a turtlebot arm to your robot. Replace base_link with whatever link you want to attach to,
 and change the origin as needed.
